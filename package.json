@@ -5,7 +5,7 @@
   "scripts": {
     "gen": "quicktype -t CloudConfig -l ts -s schema -o src/cloud-init.ts --nice-property-names --prefer-unions --prefer-const-values --runtime-typecheck-ignore-unknown-properties --src \"https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json\""
   },
-  "main": "index.ts",
+  "main": "src/index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/sky91/cloud-init-ts.git"
