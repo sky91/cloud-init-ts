@@ -2,7 +2,7 @@ import { CloudConfig } from "./cloud-init";
 export declare class CloudConfigs {
     private readonly cloudConfig;
     private constructor();
-    static from(cloudConfig: CloudConfig): CloudConfigs;
+    static from(cloudConfig?: CloudConfig): CloudConfigs;
     addAptAliyunMirrors(): CloudConfigs;
     aptInstallDocker(config: {
         dockerAptMirrors?: "aliyun";

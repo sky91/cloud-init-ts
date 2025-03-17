@@ -6,8 +6,8 @@ export class CloudConfigs {
         private readonly cloudConfig: CloudConfig) {
     }
 
-    static from(cloudConfig: CloudConfig): CloudConfigs {
-        return new CloudConfigs(cloudConfig);
+    static from(cloudConfig?: CloudConfig): CloudConfigs {
+        return new CloudConfigs(cloudConfig ?? {});
     }
 
     addAptAliyunMirrors(): CloudConfigs {
