@@ -3,14 +3,18 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "gen": "quicktype -t CloudConfig -l ts -s schema -o src/cloud-init.ts --nice-property-names --prefer-unions --prefer-const-values --runtime-typecheck-ignore-unknown-properties --src \"https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json\""
+    "gen": "quicktype -t CloudConfig -l ts -s schema -o src/cloud-init.ts --nice-property-names --prefer-unions --prefer-const-values --runtime-typecheck-ignore-unknown-properties --src \"https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json\"",
+    "build": "tsc"
   },
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/sky91/cloud-init-ts.git"
   },
-  "private": true,
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "quicktype": "23.0.148"
   }
