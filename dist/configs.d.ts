@@ -7,7 +7,7 @@ export declare class CloudConfigs {
     aptInstallDocker(config: {
         dockerAptMirrors?: "aliyun";
         dockerRegistryMirrors?: (string | "daocloud")[];
-        fetchGpg?: (url: string) => string;
-    }): CloudConfigs;
+        fetchGpg?: (url: string) => Promise<string>;
+    }): Promise<CloudConfigs>;
     toJsonObject(): object;
 }

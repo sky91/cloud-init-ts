@@ -37,11 +37,11 @@ export class CloudConfigs {
         return this;
     }
 
-    aptInstallDocker(config: {
+    async aptInstallDocker(config: {
         dockerAptMirrors?: "aliyun",
         dockerRegistryMirrors?: (string | "daocloud")[],
-        fetchGpg?: (url: string) => string,
-    }): CloudConfigs {
+        fetchGpg?: (url: string) => Promise<string>,
+    }): Promise<CloudConfigs> {
         if (config.dockerAptMirrors) {
             let apt = this.cloudConfig.apt;
             if (!apt) {
@@ -53,7 +53,7 @@ export class CloudConfigs {
             }
             (apt.sources as any)["docker-aliyun"] = {
                 source: "deb [signed-by=$KEY_FILE] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $RELEASE stable",
-                key: config.fetchGpg?.('https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg'),
+                key: await config.fetchGpg?.('https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg'),
             };
         }
 
